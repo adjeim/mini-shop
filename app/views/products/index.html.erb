@@ -1,0 +1,12 @@
+<h1>All of our Products</h1>
+<!-- <p>Find me in app/views/product/index.html.erb</p> -->
+
+
+
+<%= @products.each do |product| %>
+	<div class="card">
+		<h4><%= product.name %></h4>
+		<h4><%= product.price %></h4>
+		<img src="http://placehold.it/250/44aa1e/000000">
+	</div>
+<% end %>
