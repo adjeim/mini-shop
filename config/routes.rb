@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-	resources :users, :wishlists, :carts, :products
+	resources :users, :wishlists, :orders, :products
 
   root 'static_pages#home'
 

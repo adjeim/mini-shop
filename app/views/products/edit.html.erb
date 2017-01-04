@@ -1,2 +1,20 @@
-<h1>Products#edit</h1>
-<p>Find me in app/views/products/edit.html.erb</p>
+<h2>Edit Product</h2>
+
+<%= form_for @product do |f| %>
+	
+	<%= f.label :name, value: "Name: " %>
+	<%= f.text_field :name %><br>
+
+	<%= f.label :price, value: "Price: " %>
+	<%= f.text_field :price %><br>
+
+	<%= f.label :number_avail, value: "Number Available: " %>
+	<%= f.text_field :number_avail %><br>
+
+	<%= f.submit "Save Changes" %>
+
+<% end %>
+
+<!-- <h2>Delete Product</h2> -->
+
+   <p><%= link_to "Delete Product", @product, method: :delete, data: { confirm: "Are you sure?" } %></p>
