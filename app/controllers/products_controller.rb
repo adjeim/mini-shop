@@ -12,6 +12,8 @@ class ProductsController < ApplicationController
   end
 
   def create
+    @product = Product.create(product_params)
+    redirect_to @product
   end
 
   def edit
@@ -21,5 +23,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  
+  def product_params
+    params.require(:product).permit(:name, :price, :number_avail)
   end
 end
