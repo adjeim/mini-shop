@@ -1,23 +1,21 @@
-<h1>Users#new</h1>
-<h2>Create New User</h2>
-
+<h2>Sign Up</h2>
 
 <%= form_for User.new do |f| %>
 	
-	<%= f.label :fname, value: "First Name" %>
-	<%= f.text_field :fname %>
+	<%= f.label :fname, value: "First Name: " %>
+	<%= f.text_field :fname %><br>
 
-	<%= f.label :lname, value: "Last Name" %>
-	<%= f.text_field :lname %>
+	<%= f.label :lname, value: "Last Name: " %>
+	<%= f.text_field :lname %><br>
 
-	<%= f.label :zipcode %>
-	<%= f.text_field :zipcode, maxlength: 5 %>
+	<%= f.label :address, value: "Address: " %>
+	<%= f.text_field :address %><br>
 
-	<%= f.label :email %>
-	<%= f.text_field :email %>
+	<%= f.label :email, value: "Email: " %>
+	<%= f.text_field :email %><br>
 
-	<%= f.label :password %>
-	<%= f.password_field :password %>
+	<%= f.label :password, value: "Password: " %>
+	<%= f.password_field :password %><br>
 
 	<%= f.submit %>
 
