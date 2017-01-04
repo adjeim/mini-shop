@@ -13,7 +13,7 @@
 		lname: Faker::Name.last_name,
 		address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
 		email: Faker::Internet.email,
-		password: "password"
+		password_digest: "password"
 	)
 end
 
