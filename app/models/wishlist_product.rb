@@ -1,2 +1,0 @@
-class WishlistProduct < ApplicationRecord
-end

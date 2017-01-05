@@ -1,7 +1,4 @@
-class Wishlist < ApplicationRecord
-	belongs_to :user
-	has_and_belongs_to_many :products
-
+class ProductWishlist < ApplicationRecord
 
 	# def add_to_wishlist(product_id)
 	# 	@wishlist = Wishlist.find(params[:id])
@@ -16,10 +13,4 @@ class Wishlist < ApplicationRecord
 
 	# 	redirect @wishlist
 	# end
-
-	# def add_to_wishlist
- #  end
-
- #  def remove_from_wishlist
- #  end
 end
