@@ -13,14 +13,14 @@
 		lname: Faker::Name.last_name,
 		address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
 		email: Faker::Internet.email,
-		password_digest: "password"
+		password: "password"
 	)
 end
 
 15.times do
 
 	Product.create(
-		name: Faker::Space.unique.star,
+		name: "#{Faker::Space.unique.star} Poster",
 		price: Faker::Commerce.price,
 		number_avail: Faker::Number.number(3)
 
