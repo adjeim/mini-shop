@@ -1,2 +1,20 @@
-<h1>Wishlists#new</h1>
-<p>Find me in app/views/wishlists/new.html.erb</p>
+<h2>Create a new wishlist</h1>
+<p>Wishlist ideas/examples:</p>
+<ul>
+	<li>Gift List (ex. "Gifts for David")</li>
+	<li>Registry (ex. "Baby Shower Wish List")</li>
+	<li>Classroom Needs</li>
+</ul>
+
+
+
+<%= form_for Wishlist.new do |f| %>
+	
+	<%= f.label :name, value: "Name of List: " %>
+	<%= f.text_field :name %><br>
+
+<!-- 	wishlist user id should be set to whoever is logged in
+	if you're not logged in, should be redirected to login/signup -->
+	<%= f.submit %>
+
+<% end %>
