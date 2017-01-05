@@ -11,9 +11,49 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>      
-      <div class="notice"><%= flash[:notice] if flash[:notice] %></div>
-      <div class="alert"><%= flash[:alert] if flash[:alert] %></div>
-    <%= yield %>
+  <body>  
+    <div class="container">    
+        <div class="notice"><%= flash[:notice] if flash[:notice] %></div>
+        <div class="alert"><%= flash[:alert] if flash[:alert] %></div>
+
+        <header>
+          <h1><a href="/">Space Posters Shop</a></h1>
+          <h2>for all the universe's children</h2>
+          
+          <% if session[:user_id] == nil %>
+            <div class="navigation">
+              <nav>
+                <ul>
+                  <li><a href="/about">About</a></li>
+                  <li><a href="/contact">Contact</a></li>
+                  <li><a href="/help">Help</a></li>
+                  <li><a href="/login">Log In</a></li>
+                </ul>
+              </nav>
+            </div>
+
+          <% else %>
+            <div class="navigation">
+              <nav>
+                <ul>
+                  <li><a href="/about">About</a></li>
+                  <li><a href="/contact">Contact</a></li>
+                  <li><a href="/help">Help</a></li>
+                </ul>
+                <ul>
+                  <li><a href="/users/<%= session[:user_id] %>">My Profile</a></li>
+                  <li>
+                    <%= form_tag "/logout" do %>
+                      <%= submit_tag ("Log Out") %>
+                    <% end %>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          <% end %>
+        </header>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

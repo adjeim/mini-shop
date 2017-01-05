@@ -32,22 +32,14 @@ class WishlistsController < ApplicationController
   end
 
   def add_to_wishlist
-    # @wishlist = Wishlist.find(params[:id])
     @user = User.find(session[:user_id])
 
-
-    # @products = @wishlist.products
     @product = Product.find(params[:product_id]) 
-    #find the product
 
     @user.wishlist.products.push(@product)
-    #add the product to the order (???) 
 
     redirect_to @user.wishlist
   end
-
-  # def add_to_wishlist
-  # end
 
   # def remove_from_wishlist
   # end
