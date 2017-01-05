@@ -15,3 +15,18 @@
 
 
 
+
+<!-- All three of these buttons/links fail: -->
+
+<%= form_tag "/logout" do %>
+  <%= submit_tag ("Log Out") %>
+<% end %>
+
+
+<form method="delete" action="/logout">
+	<button type="submit" value="Log Out">
+	Log Out
+	</button>
+</form>
+
+<p><%= link_to "Log Out", logout_path %></p>

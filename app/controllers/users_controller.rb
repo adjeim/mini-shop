@@ -15,6 +15,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+
+    # Wishlist.create(user_id: @user.id)
+    # Order.create(user_id: @user.id)
+
     redirect_to @user
   end
 

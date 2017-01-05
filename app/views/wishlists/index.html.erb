@@ -5,15 +5,15 @@
 	<div>
 		<h3><a href="/wishlists/<%= wishlist.id %>"><%= wishlist.name %></a></h3>
 
-
-		<% @wishlist.each do |product| %>
-			<div>
-				<h3><a href="/products/<%= product.id %>"><%= product.name %></a></h3>
-				<td><%= product.price %></td>
-				<li><a>Add to Cart</a></li>
-			</div>
+		<% if @wishlist.products.length > 0 %>
+			<% @wishlist.each do |product| %>
+				<div>
+					<h3><a href="/products/<%= product.id %>"><%= product.name %></a></h3>
+					<td><%= product.price %></td>
+					<li><a>Add to Cart</a></li>
+				</div>
+			<% end %>
 		<% end %>
-		
 	</div>
 <% end %>
 

@@ -31,6 +31,12 @@ class WishlistsController < ApplicationController
     redirect_to '/'
   end
 
+  # def add_to_wishlist
+  # end
+
+  # def remove_from_wishlist
+  # end
+
   private
 
   def wishlist_params
