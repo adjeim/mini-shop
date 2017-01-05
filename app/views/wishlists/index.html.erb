@@ -1,2 +1,19 @@
-<h1>Wishlists#index</h1>
-<p>Find me in app/views/wishlists/index.html.erb</p>
+<h2>My Wishlists</h2>
+
+
+<% @wishlists.each do |wishlist| %>
+	<div>
+		<h3><a href="/wishlists/<%= wishlist.id %>"><%= wishlist.name %></a></h3>
+
+
+		<% @wishlist.each do |product| %>
+			<div>
+				<h3><a href="/products/<%= product.id %>"><%= product.name %></a></h3>
+				<td><%= product.price %></td>
+				<li><a>Add to Cart</a></li>
+			</div>
+		<% end %>
+		
+	</div>
+<% end %>
+

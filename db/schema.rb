@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170103214623) do
 
   create_table "wishlists", force: :cascade do |t|
     t.integer  "user_id"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

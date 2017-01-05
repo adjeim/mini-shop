@@ -34,7 +34,7 @@ class WishlistsController < ApplicationController
   private
 
   def wishlist_params
-    params.require(:wishlist).permit(:user_id)
+    params.require(:wishlist).permit(:user_id, :name)
   end
 
   def set_wishlist
