@@ -6,5 +6,8 @@
 		<h4><%= product.price %></h4>
 		<img src="http://lorempixel.com/150/210/nature">
 	</div>
+	<%= form_tag "/remove_from_wishlist/#{product.id}" do %>
+	  <%= submit_tag ("Remove from Wishlist") %>
+	<% end %>
 <% end %>
 

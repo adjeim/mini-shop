@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   post '/logout',  to: 'sessions#destroy'
 
   post '/add_to_order/:product_id', to: 'orders#add_to_order'
+	post '/remove_from_order/:product_id', to: 'orders#remove_from_order'
+
   post '/add_to_wishlist/:product_id', to: 'wishlists#add_to_wishlist'
+  post '/remove_from_wishlist/:product_id', to: 'wishlists#remove_from_wishlist'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
