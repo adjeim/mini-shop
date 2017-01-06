@@ -1,18 +1,23 @@
-<h2><%= @user.fname %>'s Profile Page</h2>
+<% if current_user %>
+	<h2><%= @user.fname %>'s Profile Page</h2>
 
-<h3><a href="/orders/<%= @user.order.id %>">My Orders</h3>
+	<h3><a href="/orders/<%= @user.order.id %>">My Orders</h3>
 
-<h3><a href="/wishlists/<%= @user.wishlist.id %>">My Wishlist</a></h3>
+	<h3><a href="/wishlists/<%= @user.wishlist.id %>">My Wishlist</a></h3>
 
-<h3>My Info</h3>
-	<ul>
-		<li><%= @user.fname %> <%= @user.lname %></li>
-		<li><%= @user.address %></li>
-		<li><%= @user.email %></li>
-	</ul>
+	<h3>My Info</h3>
+		<ul>
+			<li><%= @user.fname %> <%= @user.lname %></li>
+			<li><%= @user.address %></li>
+			<li><%= @user.email %></li>
+		</ul>
 
-<p><%= link_to "Edit Profile", edit_user_path %></p>
+	<p><%= link_to "Edit Profile", edit_user_path %></p>
 
-<%= form_tag "/logout" do %>
-  <%= submit_tag ("Log Out") %>
+	<%= form_tag "/logout" do %>
+	  <%= submit_tag ("Log Out") %>
+	<% end %>
+<% else %>
+	<p>Already have an account? <%= link_to "Log in!", login_path %></p>
+	<p>New user? <%= link_to "Sign up now!", signup_path %></p>
 <% end %>
