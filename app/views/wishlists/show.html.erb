@@ -1,2 +1,10 @@
-<h1>Wishlists#show</h1>
-<p>Find me in app/views/wishlists/show.html.erb</p>
+<h2>My Wishlist</h2>
+
+<% @wishlist.products.each do |product| %>
+	<div class="card">
+		<h4><a href="/products/<%= product.id %>"><%= product.name %></a></h4>
+		<h4><%= product.price %></h4>
+		<img src="http://lorempixel.com/150/210/nature">
+	</div>
+<% end %>
+

@@ -17,6 +17,14 @@
 	)
 end
 
+(1..20).each do |num|
+	Wishlist.create(
+		user_id: num,
+		name: "My Wishlist"
+	)
+end
+
+
 15.times do
 
 	Product.create(

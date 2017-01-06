@@ -1,16 +1,15 @@
-<h2>My Wishlists</h2>
+<h2>My Wishlist</h2>
 
 
 <% @wishlists.each do |wishlist| %>
 	<div>
-		<h3><a href="/wishlists/<%= wishlist.id %>"><%= wishlist.name %></a></h3>
 
-		<% if @wishlist.products.length > 0 %>
-			<% @wishlist.each do |product| %>
+		<% if wishlist.products.length > 0 %>
+			<% wishlist.products.each do |product| %>
 				<div>
 					<h3><a href="/products/<%= product.id %>"><%= product.name %></a></h3>
-					<td><%= product.price %></td>
-					<li><a>Add to Cart</a></li>
+					<p><%= product.price %></p>
+					<p><a>Add to Cart</a></p>
 				</div>
 			<% end %>
 		<% end %>

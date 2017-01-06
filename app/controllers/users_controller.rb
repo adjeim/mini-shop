@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    # @wishlist = @user.wishlist
   end
 
   def new
@@ -16,8 +17,10 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
 
-    # Wishlist.create(user_id: @user.id)
-    # Order.create(user_id: @user.id)
+    # @wishlist = @user.wishlist
+
+    Wishlist.create(user_id: @user.id, name: "#{@user.fname}'s Wishlist")
+    Order.create(user_id: @user.id)
 
     redirect_to @user
   end

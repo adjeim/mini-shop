@@ -3,6 +3,7 @@
 	<h2><%= @product.name %></h2>
 	<h4><%= @product.price %></h4>
 	<img src="http://lorempixel.com/350/450/nature">
+	
 	<%= form_tag "/add_to_wishlist/#{@product.id}" do %>
 	  <%= submit_tag ("Add to Wishlist") %>
 	<% end %>
