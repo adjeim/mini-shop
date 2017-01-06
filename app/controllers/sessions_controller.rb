@@ -8,13 +8,13 @@ class SessionsController < ApplicationController
 	    if @user && @user.password == params[:password]
 	    	session[:user_id] = @user.id
 	    	redirect_to @user
-	    	flash.now[:notice] = "Welcome back, <%= @user.name %>!"
+	    	flash[:notice] = "Welcome back, #{@user.fname}!"
 	    end
 	end
 
 	def destroy
 	    session[:user_id] = nil
 	    redirect_to root_path
-	    flash.now[:notice] = "You have successfully logged out."
+	    flash[:notice] = "You have successfully logged out."
 	end
 end
