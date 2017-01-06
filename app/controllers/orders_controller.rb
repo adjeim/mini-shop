@@ -31,6 +31,20 @@ class OrdersController < ApplicationController
     redirect_to '/'
   end
 
+  def add_to_order
+    @user = User.find(session[:user_id])
+    @product = Product.find(params[:product_id]) 
+    @user.order.products.push(@product)
+    redirect_to @user.order
+  end
+
+  def remove_from_order
+    @user = User.find(session[:user_id])
+    @product = Product.find(params[:product_id]) 
+    @user.order.products.delete(@product)
+    redirect_to @user.order
+  end
+
   private
 
   def order_params
@@ -42,3 +56,6 @@ class OrdersController < ApplicationController
   end
 
 end
+
+
+

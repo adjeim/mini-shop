@@ -1,2 +1,19 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<h2>My Cart</h2>
+
+<table>
+	<tr>
+		<th>Item Name</th>
+		<th>Picture</th>
+		<th>Price</th>
+		<th>Quantity</th>
+	</tr>
+	<% @cart.products.each do |product| %>
+		<tr>
+			<td><a href="/products/<%= product.id %>"><%= product.name %></a></td>
+			<td><img src="http://lorempixel.com/150/210/nature"></td>
+			<td><%= product.price %></td>
+			<td>1</td>
+		</tr>
+	<% end %>
+</table>
+
