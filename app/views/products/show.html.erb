@@ -7,5 +7,9 @@
 	<%= form_tag "/add_to_wishlist/#{@product.id}" do %>
 	  <%= submit_tag ("Add to Wishlist") %>
 	<% end %>
+
+	<%= form_tag "/add_to_order/#{@product.id}" do %>
+	  <%= submit_tag ("Add to Cart") %>
+	<% end %>
 </div>
 

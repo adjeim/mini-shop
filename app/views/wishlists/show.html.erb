@@ -9,5 +9,12 @@
 	<%= form_tag "/remove_from_wishlist/#{product.id}" do %>
 	  <%= submit_tag ("Remove from Wishlist") %>
 	<% end %>
+
+	<%= form_tag "/add_to_order/#{product.id}" do %>
+	  <%= submit_tag ("Add to Cart") %>
+	<% end %>
+
 <% end %>
+
+
 

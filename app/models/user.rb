@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 	has_one :wishlist, dependent: :destroy
-	has_many :orders
+	has_one :order
 	
 	# has_secure_password
 	# validates_confirmation_of :password

@@ -24,6 +24,12 @@ end
 	)
 end
 
+(1..20).each do |num|
+	Order.create(
+		user_id: num
+	)
+end
+
 
 15.times do
 
