@@ -3,8 +3,13 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
+    if params[:search]
+      @products = Product.search(params[:search]).order("created_at DESC")
+    else
+      @products = Product.all.order("created_at DESC")
+    end
   end
+
 
   def show
   end
@@ -30,6 +35,12 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to products_path
   end
+
+  # def search
+  #   # if search(params :search) 
+      
+  #   # end
+  # end
 
   private
 

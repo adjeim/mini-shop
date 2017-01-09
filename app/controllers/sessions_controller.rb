@@ -8,10 +8,9 @@ class SessionsController < ApplicationController
 	    if @user && @user.password == params[:password]
 	    	session[:user_id] = @user.id
 	    	redirect_to @user
-	    	flash[:notice] = "Welcome back, <%= @user.name %>!"
-
-	    else
-	   		redirect_to '/login'
+	    	flash[:notice] = "Welcome back, #{@user.fname}!"
+    	else
+    		redirect_to '/login'
 			flash[:alert] = "Something doesn't sound right. Are you sure you have an account with us?"
 	    end
 	end
