@@ -35,7 +35,7 @@ end
 
 	Product.create(
 		name: "#{Faker::Space.unique.star} Poster",
-		price: Faker::Commerce.price,
+		price: Faker::Number.decimal(2, 2),
 		number_avail: Faker::Number.number(3)
 
 	)

@@ -1,0 +1,26 @@
+a {
+	text-decoration: none;
+}
+
+.product-container {
+	box-sizing: border-box;
+	display: flex;
+	flex-wrap: wrap;
+	
+
+	.card {
+		width: 25%;
+		// justify-content: space-around;
+		text-align: center;
+		border: 2px solid purple;
+		margin: 10px;
+		padding: 10px;
+
+		h4 {
+			font-size: 24px;
+		}
+
+	}
+
+}
+

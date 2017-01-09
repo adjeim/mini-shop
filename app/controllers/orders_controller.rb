@@ -8,8 +8,12 @@ class OrdersController < ApplicationController
 
   def show
     @total_price = 0
+    @indiv_product_counts = Hash.new 0
+    # creates a hash that stores how many of each product are in the cart
+
     @order.products.each do |product|
       @total_price += product.price
+      @indiv_product_counts[product] += 1
     end
 
     @item_quantity = @order.products.length
