@@ -1,35 +1,5 @@
 <h2>Sign Up</h2>
 
-<%= form_for User.new do |f| %>
-	
-	<% if @user.errors.any? %>
-	<ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    <% end %>
-	
-	<%= f.label :fname, value: "First Name: " %>
-	<%= f.text_field :fname %><br>
-
-	<%= f.label :lname, value: "Last Name: " %>
-	<%= f.text_field :lname %><br>
-
-	<%= f.label :address, value: "Address: " %>
-	<%= f.text_field :address %><br>
-
-	<%= f.label :email, value: "Email: " %>
-	<%= f.text_field :email %><br>
-
-	<%= f.label :password, value: "Password: " %>
-	<%= f.password_field :password %><br>
-	<%= f.label :password, value: "Confirm Password: " %>
-	<%= f.password_field :password_confirmation %><br>
-
-	<%= f.submit %>
-
-<% end %>
-
+<%= render 'form' %>
 
 <p>Already have an account? <%= link_to "Log in!", login_path %></p>

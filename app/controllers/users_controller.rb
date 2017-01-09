@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # before_save :encrypt_password
+  # after_create :create_user_order_and_wishlist
 
   def index
     @users = User.all
@@ -22,14 +24,12 @@ class UsersController < ApplicationController
 
       Wishlist.create(user_id: @user.id, name: "#{@user.fname}'s Wishlist")
       Order.create(user_id: @user.id)
+
     else
       flash[:notice] = "Error saving user!"
       render new_user_path
     end
 
-
-    # redirect_to @user
-    # flash[:notice] = "Thanks for creating an account, #{@user.fname}! Now, please log in."
   end
 
   def edit
@@ -56,5 +56,10 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
+  # def create_user_order_and_wishlist
+  #   Wishlist.create(user_id: @user.id, name: "#{@user.fname}'s Wishlist")
+  #   Order.create(user_id: @user.id)
+  # end
 
 end
