@@ -9,6 +9,10 @@ class SessionsController < ApplicationController
 	    	session[:user_id] = @user.id
 	    	redirect_to @user
 	    	flash.now[:notice] = "Welcome back, <%= @user.name %>!"
+
+	    else
+	   		redirect_to '/login'
+			flash[:alert] = "Something doesn't sound right. Are you sure you have an account with us?"
 	    end
 	end
 

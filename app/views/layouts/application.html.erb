@@ -13,9 +13,6 @@
 
   <body>  
     <div class="container">    
-        <div class="notice"><%= flash[:notice] if flash[:notice] %></div>
-        <div class="alert"><%= flash[:alert] if flash[:alert] %></div>
-
         <header>
           <h1><a href="/">Space Posters Shop</a></h1>
           <h2>for all the universe's children</h2>
@@ -55,6 +52,9 @@
             </div>
           <% end %>
         </header>
+        
+        <div class="notice"><%= flash[:notice] if flash[:notice] %></div>
+        <div class="alert"><%= flash[:alert] if flash[:alert] %></div>
 
       <%= yield %>
     </div>
