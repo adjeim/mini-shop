@@ -56,8 +56,8 @@
         <div class="notice"><%= flash[:notice] if flash[:notice] %></div>
         <div class="alert"><%= flash[:alert] if flash[:alert] %></div>
 
-        <%= form_tag products_path do %>
-            <%= text_field_tag (:search, params[:search], placeholder: "Search All Products") %>
+        <%= form_tag(products_path, :method => "get", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search All Products" %>
             <%= submit_tag "Search", :name => nil %>
         <% end %>
 

@@ -4,10 +4,6 @@ class Product < ApplicationRecord
 
 
   def self.search(search)
-    if search
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
-    else
-      find(:all)
-    end
+  	where("name LIKE ? OR price LIKE ?", "%#{search}%", "%#{search}%")
   end
 end
