@@ -1,25 +1,48 @@
-<h2>My Cart</h2>
+<% if current_user %>
+	<h2>My Cart</h2>
 
-<table>
-	<tr>
-		<th>Item Name</th>
-		<th>Picture</th>
-		<th>Price</th>
-		<th>Quantity</th>
-		<th></th>
-	</tr>
-	<% @order.products.each do |product| %>
+	<table>
 		<tr>
-			<td><a href="/products/<%= product.id %>"><%= product.name %></a></td>
-			<td><img src="http://lorempixel.com/150/210/nature"></td>
-			<td><%= product.price %></td>
-			<td>1</td>
+			<th>Item Name</th>
+			<th>Picture</th>
+			<th>Price</th>
+			<th>Quantity</th>
+			<th>Remove?</th>
+		</tr>
+		<% @order.products.each do |product| %>
+			<tr>
+				<td><a href="/products/<%= product.id %>"><%= product.name %></a></td>
+				<td><img src="http://lorempixel.com/150/210/nature"></td>
+				<td>$<%= product.price %></td>
+				<td>1</td>
+				<td>
+					<%= form_tag "/remove_from_order/#{product.id}" do %>
+					  <%= submit_tag ("Remove from Cart") %>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>Subtotal:</td>
+			<td>Number of Items:</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>$<%= @total_price %></td>
+			<td><%= @item_quantity %></td>
 			<td>
-				<%= form_tag "/remove_from_order/#{product.id}" do %>
-				  <%= submit_tag ("Remove from Cart") %>
+				<%= form_tag "/remove_all_products_from_order" do %>
+				  <%= submit_tag ("Delete all items from cart") %>
 				<% end %>
 			</td>
 		</tr>
-	<% end %>
-</table>
+	</table>
+<% else %>
+	<p>Already have an account? <%= link_to "Log in!", login_path %></p>
+	<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+<% end %>
 

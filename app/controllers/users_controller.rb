@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     Order.create(user_id: @user.id)
 
     redirect_to @user
+    flash[:notice] = "Thanks for creating an account, #{@user.fname}! Now, please log in."
   end
 
   def edit
@@ -32,7 +33,9 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    session[:user_id] = nil
     redirect_to '/'
+    flash[:notice] = "You have successfully deleted your account."
   end
 
   private

@@ -7,6 +7,12 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @total_price = 0
+    @order.products.each do |product|
+      @total_price += product.price
+    end
+
+    @item_quantity = @order.products.length
   end
 
   def new
@@ -42,6 +48,12 @@ class OrdersController < ApplicationController
     @user = User.find(session[:user_id])
     @product = Product.find(params[:product_id]) 
     @user.order.products.delete(@product)
+    redirect_to @user.order
+  end
+
+  def remove_all_products_from_order
+    @user = User.find(session[:user_id])
+    @user.order.products = []
     redirect_to @user.order
   end
 

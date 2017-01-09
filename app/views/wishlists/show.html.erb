@@ -1,20 +1,24 @@
-<h2>My Wishlist</h2>
+<% if current_user %>
+	<h2>My Wishlist</h2>
 
-<% @wishlist.products.each do |product| %>
-	<div class="card">
-		<h4><a href="/products/<%= product.id %>"><%= product.name %></a></h4>
-		<h4><%= product.price %></h4>
-		<img src="http://lorempixel.com/150/210/nature">
-	</div>
-	<%= form_tag "/remove_from_wishlist/#{product.id}" do %>
-	  <%= submit_tag ("Remove from Wishlist") %>
+	<% @wishlist.products.each do |product| %>
+		<div class="card">
+			<h4><a href="/products/<%= product.id %>"><%= product.name %></a></h4>
+			<h4><%= product.price %></h4>
+			<img src="http://lorempixel.com/150/210/nature">
+		</div>
+		<%= form_tag "/remove_from_wishlist/#{product.id}" do %>
+		  <%= submit_tag ("Remove from Wishlist") %>
+		<% end %>
+
+		<%= form_tag "/add_to_order/#{product.id}" do %>
+		  <%= submit_tag ("Add to Cart") %>
+		<% end %>
+
 	<% end %>
 
-	<%= form_tag "/add_to_order/#{product.id}" do %>
-	  <%= submit_tag ("Add to Cart") %>
-	<% end %>
-
+<% else %>
+	<p>Already have an account? <%= link_to "Log in!", login_path %></p>
+	<p>New user? <%= link_to "Sign up now!", signup_path %></p>
 <% end %>
-
-
 

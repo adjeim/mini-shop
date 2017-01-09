@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   post '/add_to_order/:product_id', to: 'orders#add_to_order'
 	post '/remove_from_order/:product_id', to: 'orders#remove_from_order'
+  post '/remove_all_products_from_order', to: 'orders#remove_all_products_from_order'
 
   post '/add_to_wishlist/:product_id', to: 'wishlists#add_to_wishlist'
   post '/remove_from_wishlist/:product_id', to: 'wishlists#remove_from_wishlist'

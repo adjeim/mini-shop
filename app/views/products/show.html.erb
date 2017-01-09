@@ -4,12 +4,16 @@
 	<h4><%= @product.price %></h4>
 	<img src="http://lorempixel.com/350/450/nature">
 	
-	<%= form_tag "/add_to_wishlist/#{@product.id}" do %>
-	  <%= submit_tag ("Add to Wishlist") %>
-	<% end %>
+	<% if current_user %>
+		<%= form_tag "/add_to_wishlist/#{@product.id}" do %>
+		  <%= submit_tag ("Add to Wishlist") %>
+		<% end %>
 
-	<%= form_tag "/add_to_order/#{@product.id}" do %>
-	  <%= submit_tag ("Add to Cart") %>
+		<%= form_tag "/add_to_order/#{@product.id}" do %>
+		  <%= submit_tag ("Add to Cart") %>
+		<% end %>
+	<% else %>
+		<p>Already have an account? <%= link_to "Log in!", login_path %></p>
+		<p>New user? <%= link_to "Sign up now!", signup_path %></p>
 	<% end %>
 </div>
-
