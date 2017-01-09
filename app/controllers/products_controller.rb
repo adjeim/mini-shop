@@ -35,12 +35,7 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to products_path
   end
-
-  # def search
-  #   # if search(params :search) 
-      
-  #   # end
-  # end
+  
 
   private
 

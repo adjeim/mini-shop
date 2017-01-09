@@ -14,13 +14,22 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
 
-    Wishlist.create(user_id: @user.id, name: "#{@user.fname}'s Wishlist")
-    Order.create(user_id: @user.id)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to @user
 
-    redirect_to @user
-    flash[:notice] = "Thanks for creating an account, #{@user.fname}! Now, please log in."
+      Wishlist.create(user_id: @user.id, name: "#{@user.fname}'s Wishlist")
+      Order.create(user_id: @user.id)
+    else
+      flash[:notice] = "Error saving user! You need a unique email address."
+      redirect_to new_user_path
+    end
+
+
+    # redirect_to @user
+    # flash[:notice] = "Thanks for creating an account, #{@user.fname}! Now, please log in."
   end
 
   def edit
