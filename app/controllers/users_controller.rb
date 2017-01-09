@@ -23,8 +23,8 @@ class UsersController < ApplicationController
       Wishlist.create(user_id: @user.id, name: "#{@user.fname}'s Wishlist")
       Order.create(user_id: @user.id)
     else
-      flash[:notice] = "Error saving user! You need a unique email address."
-      redirect_to new_user_path
+      flash[:notice] = "Error saving user!"
+      render new_user_path
     end
 
 
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:fname, :lname, :address, :email, :password)
+    params.require(:user).permit(:fname, :lname, :address, :email, :password, :password_confirmation)
   end
 
   def set_user
