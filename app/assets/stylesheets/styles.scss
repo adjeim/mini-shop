@@ -1,0 +1,16 @@
+.product-container {
+	box-sizing: border-box;
+	display: flex;
+	flex-wrap: wrap;
+	
+
+	.card {
+		width: 33%;
+		// justify-content: space-around;
+	}
+
+	.product-name {
+		text-underline: none;
+	}
+}
+

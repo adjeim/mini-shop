@@ -16,10 +16,6 @@ class OrdersController < ApplicationController
       @indiv_product_counts[product] += 1
     end
 
-    # number_with_precision(, :precision => 2)
-    # number_to_currency(@total_price)
-    # sprintf('%.2f', @total_price)
-
     @item_quantity = @order.products.length
   end
 
