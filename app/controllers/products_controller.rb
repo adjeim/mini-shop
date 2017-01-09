@@ -3,8 +3,14 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
+    # @products = Product.all
+
+     @products = Product.search(params[:search])
+
+
   end
+
+
 
   def show
   end
@@ -30,6 +36,12 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to products_path
   end
+
+  # def search
+  #   # if search(params :search) 
+      
+  #   # end
+  # end
 
   private
 
