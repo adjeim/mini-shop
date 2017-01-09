@@ -16,9 +16,6 @@
 				<td><img src="http://lorempixel.com/150/210/nature"></td>
 				<td>$<%= product.price %></td>
 				<td><%= @indiv_product_counts[product] %>
-				<!-- if order.products has more than one of the product, quantity = the number of instances in that area -->
-					
-
 				</td>
 				<td>
 					<%= form_tag "/remove_from_order/#{product.id}" do %>
@@ -38,7 +35,7 @@
 		<tr>
 			<td></td>
 			<td></td>
-			<td>$<%= @total_price %></td>
+			<td>$<%= sprintf('%.2f', @total_price) %></td>
 			<td><%= @item_quantity %></td>
 			<td>
 				<%= form_tag "/remove_all_products_from_order" do %>
